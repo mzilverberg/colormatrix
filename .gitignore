@@ -1,0 +1,6 @@
+# Node
+node_modules/
+
+# CodeKit files
+config.codekit
+.codekit-cache/

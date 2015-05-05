@@ -1,0 +1,18 @@
+@import "mixins/colormatrix.less";
+@import "variables/matrices.less";
+
+.grayscale {
+    .colormatrix(@grayscale, @grayscale-id, "grayscale", 100%, "gray");
+
+    &:hover {
+        .colormatrix(@default, @default-id, "grayscale", 0);
+    }
+}
+
+.sepia {
+    .colormatrix(@sepia, @sepia-id, "sepia", 100%, "sepia");
+
+    &:hover {
+        .colormatrix(@default, @default-id, "sepia", 0);
+    }
+}
