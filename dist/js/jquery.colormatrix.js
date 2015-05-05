@@ -38,7 +38,7 @@ tested:         Webkit, FF31+, IE8+
       el.style.cssText = prefixes.join("filter: blur(2px); ");
       filter = $(this.element).addClass(this.settings.className).css("filter");
       a = !!el.style.length || filter !== "none";
-      b = document.documentMode === void 0 || document.documentMode > 9;
+      b = typeof document.documentMode === "undefined" || document.documentMode > 9;
       return a && b;
     };
 
@@ -47,7 +47,7 @@ tested:         Webkit, FF31+, IE8+
     };
 
     Plugin.prototype.isOldIE = function() {
-      return document.documentMode < 9;
+      return document.documentMode <= 9;
     };
 
     Plugin.prototype.checkImage = function() {
@@ -64,9 +64,7 @@ tested:         Webkit, FF31+, IE8+
           return true;
         }
       };
-      if (isImageLoaded() === true) {
-        return true;
-      }
+      return isImageLoaded();
     };
 
     Plugin.prototype.completeImage = function() {
@@ -136,16 +134,17 @@ tested:         Webkit, FF31+, IE8+
     };
 
     Plugin.prototype.apply = function() {
-      var $svg, h, imgId, suffix, w;
+      var $svg, h, imgId, w;
       w = this.element.width;
       h = this.element.height;
-      suffix = Math.random().toString(36).substr(2, 9);
-      imgId = "img_" + suffix;
-      if (this.cssFiltersSupported || this.isOldIE) {
+      imgId = "img_" + (Math.random().toString(36).substr(2, 9));
+      if (this.cssFiltersSupported() || this.isOldIE()) {
         $(this.element).addClass(this.settings.className);
+        return;
       }
-      if (!this.svgSupported) {
+      if (!this.svgSupported()) {
         throw new Error(pluginName + ".js: SVG is not supported by this browser");
+        return;
       }
       $svg = this.createSVG(imgId, w, h);
       return $(this.element).hide().after($svg);

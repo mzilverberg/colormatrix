@@ -35,7 +35,8 @@ module.exports = function(grunt) {
                     yuicompress: false,
                     cleancss: true,
                     optimization: 1,
-                    sourceMap: true
+                    sourceMap: true,
+                    sourceMapURL: "jquery.colormatrix.css.map"
                 }
             }
         },

@@ -47,7 +47,7 @@ do ($ = jQuery, window, document) ->
             filter = $(@element).addClass(@settings.className).css("filter")
             # Check for support
             a = !!el.style.length or filter isnt "none"
-            b = document.documentMode is undefined or document.documentMode > 9
+            b = typeof document.documentMode is "undefined" or document.documentMode > 9
             a and b
 
         # Check if SVG images are supported
@@ -58,7 +58,7 @@ do ($ = jQuery, window, document) ->
 
         # Check if is old IE
         isOldIE: ->
-            document.documentMode < 9
+            document.documentMode <= 9
 
         # Make calls to check if an image has been loaded
         checkImage: ->
@@ -78,8 +78,7 @@ do ($ = jQuery, window, document) ->
                 else
                     yes
             # Return true if image is loaded
-            yes if isImageLoaded() is yes
-            # of alleen: isImageLoaded()???
+            isImageLoaded()
 
         # Check if an image is loaded
         completeImage: ->
@@ -175,16 +174,17 @@ do ($ = jQuery, window, document) ->
             h = @element.height
             # Create a unique identifier for the current element
             # [source]--> https://gist.github.com/gordonbrander/2230317
-            suffix = Math.random().toString(36).substr(2, 9)
-            imgId = "img_#{suffix}"
+            imgId = "img_#{Math.random().toString(36).substr(2, 9)}"
             # If CSS filters are supported or if the browser is IE9-
-            if @cssFiltersSupported or @isOldIE
+            if @cssFiltersSupported() or @isOldIE()
                 # Rely on CSS filters
                 $(@element).addClass(@settings.className)
+                return
             # If SVG is not supported
-            if not @svgSupported
+            if not @svgSupported()
                 # The fallback won't work, so throw an error
                 throw new Error("#{pluginName}.js: SVG is not supported by this browser")
+                return
             # Create a new SVG element
             $svg = @createSVG(imgId, w, h)
             # Insert SVG and hide original image
