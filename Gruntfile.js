@@ -7,8 +7,8 @@ module.exports = function(grunt) {
         coffee: {
             compile: {
                 files: {
-                    "includes/js/jquery.colormatrix.js": "includes/coffee/jquery.colormatrix.coffee",
-                    "includes/js/functions.js": "includes/coffee/functions.coffee",
+                    "dist/js/jquery.colormatrix.js": "source/coffee/jquery.colormatrix.coffee",
+                    "dist/js/functions.js": "source/coffee/functions.coffee",
                 },
                 options: {
                     bare: true
@@ -19,8 +19,8 @@ module.exports = function(grunt) {
         uglify: {
             my_target: {
                 files: {
-                    "includes/js/functions.min.js": "includes/js/functions.js",
-                    "includes/js/jquery.colormatrix.min.js": "includes/js/jquery.colormatrix.js"
+                    "dist/js/functions.min.js": "dist/js/functions.js",
+                    "dist/js/jquery.colormatrix.min.js": "dist/js/jquery.colormatrix.js"
                 }
             }
         },
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         less: {
             development: {
                 files: {
-                    "includes/css/jquery.colormatrix.css": "includes/less/jquery.colormatrix.less"
+                    "dist/css/jquery.colormatrix.css": "source/less/jquery.colormatrix.less"
                 },
                 options: {
                     compress: false,
@@ -42,11 +42,11 @@ module.exports = function(grunt) {
         // Watch
         watch: {
             scripts: {
-                files: ["includes/coffee/*.coffee"],
+                files: ["source/coffee/*.coffee"],
                 tasks: ["coffee", "uglify"]
             },
             styles: {
-                files: ["includes/less/**/*.less"],
+                files: ["source/less/**/*.less"],
                 tasks: ["less"],
                 options: {
                     nospawn: true
@@ -60,7 +60,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-less");
     grunt.loadNpmTasks("grunt-contrib-watch");
 
-    // grunt.registerTask("default", ["coffee", "uglify", "less"]);
     grunt.registerTask("default", ["coffee", "uglify", "less", "watch"]);
 
 }
