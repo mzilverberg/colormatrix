@@ -21,6 +21,9 @@ module.exports = function(grunt) {
                 files: {
                     "dist/js/functions.min.js": "dist/js/functions.js",
                     "dist/js/jquery.colormatrix.min.js": "dist/js/jquery.colormatrix.js"
+                },
+                options: {
+                    preserveComments: "some"
                 }
             }
         },
