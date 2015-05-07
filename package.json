@@ -1,5 +1,5 @@
 {
-  "name": "jquery.colormatrix",
+  "name": "colormatrix",
   "version": "1.0.0",
   "description": "A jQuery plugin for applying SVG and CSS colormatrices to inline images",
   "main": "Gruntfile.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/mzilverberg/jquery.colormatrix"
+    "url": "https://www.github.com/mzilverberg/colormatrix"
   },
   "keywords": [
     "SVG",

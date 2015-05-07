@@ -1,5 +1,5 @@
 {
-  "name": "jquery.colormatrix",
+  "name": "colormatrix",
   "version": "1.0.0",
   "description": "A jQuery plugin for applying SVG and CSS colormatrices to inline images",
   "main": ["dist/css/jquery.colormatrix.css", "dist/js/jquery.colormatrix.min.js"],
@@ -16,7 +16,7 @@
     "Maarten Zilverberg"
   ],
   "license": "MIT",
-  "homepage": "https://www.github.com/mzilverberg/jquery.colormatrix",
+  "homepage": "https://www.github.com/mzilverberg/colormatrix",
   "ignore": [
     "**/.*",
     "node_modules",
