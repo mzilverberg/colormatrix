@@ -1,8 +1,8 @@
 // Colormatrix mixin
 .colormatrix(@value, @id, @cssfilter, @percent) {
     // Webkit browsers
-    -webkit-filter: e("@{cssfilter}(@{percent})");
-    filter: e("@{cssfilter}(@{percent})");
+    -webkit-filter: e("@{cssfilter}(@{percent}%)");
+    filter: e("@{cssfilter}(@{percent}%)");
     // Firefox 10+, Firefox on Android
     filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='@{id}'><feColorMatrix type='matrix' values='@{value}' /></filter></svg>#@{id}");
 
@@ -11,10 +11,26 @@
     }
 }
 
+.colormatrix(@value, @id, @cssfilter, @percent, @legacy-filter, @progid-filter) when (isstring(@progid-filter)) {
+    // Webkit browsers
+    -webkit-filter: e("@{cssfilter}(@{percent}%)");
+    filter: e("@{cssfilter}(@{percent}%)");
+    // Firefox 10+, Firefox on Android
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='@{id}'><feColorMatrix type='matrix' values='@{value}' /></filter></svg>#@{id}");
+    // IE6-9
+    @progid-value: (100 / @percent);
+    -ms-filter: e("@{progid-filter}(@{id}=@{progid-value})");
+    filter: e("@{progid-filter}(@{id}=@{progid-value})");
+
+    svg & {
+        filter: url("#@{id}");
+    }
+}
+
 .colormatrix(@value, @id, @cssfilter, @percent, @legacy-filter) when (isstring(@legacy-filter)) {
     // Webkit browsers
-    -webkit-filter: e("@{cssfilter}(@{percent})");
-    filter: e("@{cssfilter}(@{percent})");
+    -webkit-filter: e("@{cssfilter}(@{percent}%)");
+    filter: e("@{cssfilter}(@{percent}%)");
     // Firefox 10+, Firefox on Android
     filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='@{id}'><feColorMatrix type='matrix' values='@{value}' /></filter></svg>#@{id}");
     // IE6-9

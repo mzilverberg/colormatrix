@@ -2,7 +2,7 @@
 @import "variables/matrices.less";
 
 .grayscale {
-    .colormatrix(@grayscale, @grayscale-id, "grayscale", 100%, "gray");
+    .colormatrix(@grayscale, @grayscale-id, "grayscale", 100, "gray");
 
     &:hover {
         .colormatrix(@default, @default-id, "grayscale", 0);
@@ -10,9 +10,17 @@
 }
 
 .sepia {
-    .colormatrix(@sepia, @sepia-id, "sepia", 100%, "sepia");
+    .colormatrix(@sepia, @sepia-id, "sepia", 100, "sepia");
 
     &:hover {
         .colormatrix(@default, @default-id, "sepia", 0);
+    }
+}
+
+.invert {
+    .colormatrix(@invert, @invert-id, "invert", 100, "", "progid:DXImageTransform.Microsoft.BasicImage");
+
+    &:hover {
+        .colormatrix(@default, @default-id, "invert", 0);
     }
 }

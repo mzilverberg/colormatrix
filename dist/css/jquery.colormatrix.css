@@ -8,8 +8,8 @@ svg .grayscale {
   filter: url("#desaturate");
 }
 .grayscale:hover {
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
   filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='normal'><feColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0' /></filter></svg>#normal");
 }
 svg .grayscale:hover {
@@ -25,11 +25,29 @@ svg .sepia {
   filter: url("#sepia");
 }
 .sepia:hover {
-  -webkit-filter: sepia(0);
-  filter: sepia(0);
+  -webkit-filter: sepia(0%);
+  filter: sepia(0%);
   filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='normal'><feColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0' /></filter></svg>#normal");
 }
 svg .sepia:hover {
+  filter: url("#normal");
+}
+.invert {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='invert'><feColorMatrix type='matrix' values='-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0' /></filter></svg>#invert");
+  -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(invert=1);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(invert=1);
+}
+svg .invert {
+  filter: url("#invert");
+}
+.invert:hover {
+  -webkit-filter: invert(0%);
+  filter: invert(0%);
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='normal'><feColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0' /></filter></svg>#normal");
+}
+svg .invert:hover {
   filter: url("#normal");
 }
 /*# sourceMappingURL=jquery.colormatrix.css.map */
