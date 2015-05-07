@@ -19,7 +19,7 @@ _* More options than grayscale and sepia are possible. For example, you can inve
 ### Install with Bower
 
 ```
-$ bower install mzilverberg/jquery-colormatrix
+$ bower install jquery-colormatrix
 ```
 
 ### Or: include files
