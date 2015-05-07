@@ -1,5 +1,7 @@
 # jQuery.colorMatrix.js
 
+![Bower Version](https://img.shields.io/bower/v/jquery-colormatrix.svg)
+
 A jQuery plugin for applying SVG and CSS [colormatrices](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix) to inline images.
 
 ## Why?
@@ -12,7 +14,15 @@ You can easily apply **crossbrowser** color changes to images, as long as these 
 
 _* More options than grayscale and sepia are possible. For example, you can invert colors pretty easily, but it's not currently integrated in the plugin. I'm planning on extending soon._
 
-## How does it work?
+## Installation
+
+### Install with Bower
+
+```
+$ bower install mzilverberg/jquery-colormatrix
+```
+
+### Or: include files
 
 Include the plugin's `JavaScript` and `CSS` files. Have a look at the examples for further customization.
 
