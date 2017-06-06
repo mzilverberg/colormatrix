@@ -3,8 +3,8 @@
 ----------------------------------
 jquery.colorMatrix.js
 ----------------------------------
-version:        1.1.2
-last update:    May 7th, 2015
+version:        1.1.3
+last update:    June 6th, 2017
 author:         Maarten Zilverberg
 tested:         Webkit, FF31+, IE8+
 ----------------------------------
